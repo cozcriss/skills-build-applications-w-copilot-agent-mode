@@ -54,7 +54,7 @@ app.listen(PORT, () => {
   
   if (env.codespace !== 'local') {
     console.log(`☁️  Codespace: ${env.codespace}`);
-    console.log(`🌍 Codespaces URL: https://${env.codespace}-8000.app.github.dev`);
+    console.log(`🌍 Codespaces URL: ${serverUrl}`);
   }
   
   console.log(`\n📚 API Documentation:`);

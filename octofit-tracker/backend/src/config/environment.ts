@@ -27,7 +27,7 @@ export const getServerUrl = (): string => {
   const port = normalizePort(process.env.PORT);
   
   if (codespaceName) {
-    return `https://${codespaceName}-${port}.app.github.dev`;
+    return `https://${codespaceName}-8000.app.github.dev`;
   }
   return `http://localhost:${port}`;
 };
