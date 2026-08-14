@@ -1,17 +1,20 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
-const connectionString = process.env.MONGODB_URI || 'mongodb://localhost:27017/octofit_db';
+dotenv.config();
+
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/octofit_db';
 const db = mongoose.connection;
 
-mongoose
-  .connect(connectionString)
-  .then(() => {
+export const connectDB = async () => {
+  try {
+    await mongoose.connect(MONGODB_URI);
     console.log('Connected to octofit_db');
-  })
-  .catch((error) => {
+  } catch (error) {
     console.error('Error connecting to octofit_db:', error);
     process.exit(1);
-  });
+  }
+};
 
 db.on('error', console.error.bind(console, 'connection error:'));
 
